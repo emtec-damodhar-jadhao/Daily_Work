@@ -11,9 +11,8 @@ function Navbar() {
       <ul className="nav nav-pills">
         <li className="nav-item"><Link to="/GetAllCustomers" className="nav-link text-dark">All</Link></li>
         <li className="nav-item"><Link to="/AddNewCustomer" className="nav-link text-dark">New</Link></li>
-        <li className="nav-item"><Link to="/SearchByID" className="nav-link text-dark">Search</Link></li>
+        {/* <li className="nav-item"><Link to="/SearchByID" className="nav-link text-dark">Search</Link></li> */}
         <li className="nav-item"><Link to="/UpdateCustomer" className="nav-link text-dark">Update</Link></li>
-        <li className="nav-item"><Link to="/DeleteCustomer" className="nav-link text-dark">Delete</Link></li>
       </ul>
     </header>
    </section>

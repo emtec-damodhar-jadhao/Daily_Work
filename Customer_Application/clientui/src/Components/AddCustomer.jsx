@@ -1,61 +1,90 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddCustomer() {
+  let postUrl = "https://localhost:7234/api/CustomerData/addcustomer";
+
+  let navigate = useNavigate();
+
+  let [newcustomer, setnewcustomer] = useState({});
+
+  let onChangeHandle = (e) => {
+    setnewcustomer({ ...newcustomer, [e.target.name]: e.target.value });
+  };
+
+  let submit = () => {
+    console.log(newcustomer);
+    axios.post(postUrl, newcustomer);
+    alert("Data Added successfully")
+    navigate("/GetAllCustomers");
+  };
+
   return (
     <>
       <Navbar />
       <section className="container">
-     
-        <form class="row g-3 border m-5 p-4">
-        <h4 className=''>Add New Customer</h4><hr/>
-          <div class="col-md-6">
-            <label for="name" class="form-label">
+        <form className="row g-3 border m-5 p-4">
+          <h4 className="">Add New Customer</h4>
+          <hr />
+          <div className="col-md-6">
+            <label htmlFor="name" className="form-label">
               Name
             </label>
-            <input type="text" class="form-control" id="name" />
+            <input name="Name" onChange={onChangeHandle} type="text" className="form-control" id="name" required />
           </div>
-          <div class="col-md-6">
-            <label for="Code" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="Code" className="form-label">
               Customer Code
             </label>
-            <input type="text" class="form-control" id="Code" placeholder="Enter Customer Id or Code" />
+            <input
+            required
+              onChange={onChangeHandle}
+              type="text"
+              name="CustomerCode"
+              className="form-control"
+              id="Code"
+              placeholder="Enter Customer Id or Code"
+            />
           </div>
 
-          <div class="col-md-4">
-            <label for="State" class="form-label">
-              State
-            </label>
-            <input type="text" class="form-control" id="State" />
-          </div>
-
-          <div class="col-md-4">
-            <label for="inputCity" class="form-label">
-              City
-            </label>
-            <input type="text" class="form-control" id="inputCity" />
-          </div>
-
-          <div class="col-md-4">
-            <label for="PostalCode" class="form-label">
+          <div className="col-md-4">
+            <label htmlFor="PostalCode" className="form-label">
               Postal Code
             </label>
-            <input type="text" class="form-control" id="PostalCode" />
+            <input name="PostalCode" type="text" onChange={onChangeHandle}  className="form-control" id="PostalCode" />
           </div>
-          <div class="col-12">
-            <label for="inputAddress" class="form-label">
+          <div className="col-md-4">
+            <label htmlFor="State" className="form-label">
+              Landmark
+            </label>
+            <input onChange={onChangeHandle} name="landmark" type="text" className="form-control" id="State" />
+          </div>
+
+          <div className="col-md-4">
+            <label htmlFor="inputCity" className="form-label">
+              City_Id
+            </label>
+            <input name="CityId" type="number" onChange={onChangeHandle} className="form-control" id="inputCity" />
+          </div>
+          <div className="col-12">
+            <label htmlFor="inputAddress" className="form-label">
               Address
             </label>
             <input
+              onChange={onChangeHandle}
+              name="Address"
               type="text"
-              class="form-control"
+              className="form-control"
               id="inputAddress"
               placeholder="Enter Your Address"
             />
           </div>
 
-          <div class="col-12">
-            <button type="button" class="btn btn-success">
+          <div className="col-12">
+            <button onClick={submit} type="button" className="btn btn-success">
               Add
             </button>
           </div>

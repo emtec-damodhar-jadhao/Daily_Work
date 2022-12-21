@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
+using UserData;
 
 namespace Customer_Api.Controllers
 {
@@ -14,57 +15,69 @@ namespace Customer_Api.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IDataBaseOperation _DataBaseOperation;
-        public CustomerDataController(IConfiguration configuration, IDataBaseOperation DataBaseOperation)
+        private readonly ILogger<CustomerDataController> _logger;
+        private readonly IMessageSession session;
+
+
+        public CustomerDataController(IConfiguration configuration, IDataBaseOperation DataBaseOperation, ILogger<CustomerDataController> logger, IMessageSession session)
         {
             _configuration = configuration;
             _DataBaseOperation = DataBaseOperation;
+            _logger = logger;
+            this.session = session;
         }
-        [HttpGet]
-        public async Task<ActionResult<List<CustomerData>>> GetAllCustomerData()
+
+        [HttpGet ("getallcustomer")]
+        public async Task<ActionResult<List<object>>> GetAllCustomerData()
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-            var Customers = await connection.QueryAsync<CustomerData>(_DataBaseOperation.GetAllCustomerData());
+            var Customers = await connection.QueryAsync<object>(_DataBaseOperation.GetAllCustomerData());
             return Ok(Customers);
         }
-
-        [HttpPost]
-        public async Task<ActionResult> SetData(CustomerData cust1)
+        [HttpGet("getbyid")]
+        public async Task<ActionResult<CustomerData>> getcustomerbyid(int customerid)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-
-            var customer = await connection.ExecuteAsync("INSERT INTO Customer(Name,CustomerCode,PostalCode,CityID) values(@Name,@PostalCode,@PostalCode,@cityID)", new
-            {
-                Name = cust1.Name,
-                CustomerCode= cust1.CustomerCode,
-               PostalCode= cust1.PostalCode,
-                cityID = cust1.CityID
-            });
-
-            return Ok();
+            var getcustomerbyid = await connection.QueryFirstAsync<CustomerData>(_DataBaseOperation.getbyid(customerid));
+            return Ok(getcustomerbyid);
         }
 
-        [HttpPost("SetDataWithObject")]
-        public async Task<ActionResult> SetDataWithObject(CustomerData cust)
+        [HttpGet("getbyname")]
+        public async Task<ActionResult<CustomerData>> getcustomerbyname(string customername)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-
-            var customer = await connection.ExecuteAsync("INSERT INTO Customer(Name,CustomerCode,PostalCode,CityID) values(@Name,@PostalCode,@PostalCode,@cityID)", new
-            {
-                Name = cust.Name,
-                CustomerCode= cust.CustomerCode,
-                PostalCode = cust.PostalCode,     
-                CityID = cust.citydata.Id
-            });
-
-            var city = await connection.ExecuteAsync("INSERT INTO City (CityName,StateID) " +
-                "Values (@CityName,@StateID)",
-                new
-                {
-                    cityName = cust.citydata.CityName,
-                    stateId = cust.citydata.StateID
-                });
-            return Ok();
+            var getcustomerbyid = await connection.QueryFirstAsync<CustomerData>(_DataBaseOperation.getbyname(customername));
+            return Ok(getcustomerbyid);
         }
+
+        [HttpPost ("addcustomer")]
+        public async Task<ActionResult> AddCustomer(CustomerData cusdata)
+        {
+            using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            var addnewcus = await connection.ExecuteAsync(_DataBaseOperation.addcustomer(cusdata));           
+            await session.Send(new UserDataAdd(cusdata.Id, cusdata.CustomerCode, cusdata.PostalCode, cusdata.landmark, cusdata.Address, cusdata.CityID));
+            return Ok(addnewcus);
+        } 
+
+        [HttpPut ("updatecustomer")]
+        public async Task<ActionResult<List<CustomerData>>> UpdateCustomerData(CustomerData newcustomer)
+        {
+            using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            var update_customer = await connection.ExecuteAsync(_DataBaseOperation.updatecustomer(newcustomer));
+            await session.Send(new UserDataAdd(newcustomer.Id, newcustomer.CustomerCode, newcustomer.PostalCode, newcustomer.landmark, newcustomer.Address, newcustomer.CityID));
+
+            return Ok(update_customer);
+        }
+
+
+        [HttpDelete("deletecustomer")]
+        public async Task<ActionResult<CustomerData>> DeleteCustomerData(int id)
+        {
+            using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            var deleteCustomer = await connection.ExecuteAsync(_DataBaseOperation.deletecustomer(id));
+            return Ok(deleteCustomer);
+        }
+
 
     }
 }
