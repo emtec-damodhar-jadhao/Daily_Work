@@ -1,13 +1,7 @@
-﻿using Messages;
-using NServiceBus.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace User_Service
+﻿namespace User_Service.Handler
 {
+    using Messages;
+    using NServiceBus.Logging;
     public class CreateUserMessageHandler : IHandleMessages<CreateUserMessage>
     {
         static ILog log = LogManager.GetLogger<CreateUserMessageHandler>();

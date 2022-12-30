@@ -12,7 +12,6 @@ endpointConfiguration.EnableInstallers();
 
 var endpointInstance = await Endpoint.Start(endpointConfiguration);   
 
-
 Console.WriteLine("Press Enter to exit.");
 Console.ReadLine();
 
