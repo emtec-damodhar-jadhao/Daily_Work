@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers",
-    "\\Infrastructure",
-    "\\Model"
+    "\\Controllers"
   ],
   "SelectedNode": "\\Customer_Api.sln",
   "PreviewInSolutionExplorer": false

@@ -1,5 +1,6 @@
-using Customer_Api.Infrastructure;
-using UserData;
+using Infrastructure;
+using Contract;
+using Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // interface configuration
-builder.Services.AddScoped<IDataBaseOperation, DataBaseOperation>();
+builder.Services.AddSingleton<IDataBaseOperation , DataBaseOperation>();
+//builder.Services.AddTransient<IDbConnection, DbConnection>();
 
 builder.Services.AddCors(options =>
 {
