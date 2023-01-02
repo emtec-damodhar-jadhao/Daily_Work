@@ -15,21 +15,23 @@ namespace Mapper_Practice_Api.Controllers
             _mapper = mapper; 
         }
 
-        private static List<StudentData> students = new List<StudentData>
+        private readonly List<StudentData> students = new List<StudentData>
         {
             new StudentData
             {
                 Id = 1,
                 Name="Damodhar",
-                Education="Btech",
-                City="Aurangabad"
+                Education="Btech",                
+                City="Aurangabad",
+               College="MIT"
             },
             new StudentData
             {
                  Id = 2,
                 Name="Sagar",
-                Education="MBA",
-                City="Pune"
+                Education="MBA",               
+                City="Pune",
+               College="MGM"
             }
         };
 

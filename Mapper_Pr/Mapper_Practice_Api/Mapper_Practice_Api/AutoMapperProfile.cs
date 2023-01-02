@@ -9,7 +9,7 @@ namespace Mapper_Practice_Api
         public AutoMapperProfile()
         {
             //Configure Automapper
-            CreateMap<StudentData, StudentDataDto>();
+            CreateMap<StudentData, StudentDataDto>().ForMember(dest => dest.CityName, src => src.MapFrom(src => src.City)) ;
             CreateMap<StudentDataDto, StudentData>();
         }
     }
