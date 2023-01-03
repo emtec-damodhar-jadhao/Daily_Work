@@ -1,9 +1,8 @@
-﻿using Domain;
+﻿using Dapper;
+using Domain;
 using Infrastructure.Interfaces;
-using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
-using System.Data;
-using IDbConnection = Infrastructure.Interfaces.IDbConnection;
+
 
 namespace Infrastructure;
 
@@ -11,20 +10,32 @@ public class DataBaseOperation : IDataBaseOperation
 {
     private readonly IDbConnection _connect;
     private SqlConnection _connection;
-    //private IDbConnection _connection => new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-
     public DataBaseOperation(IDbConnection connect)
     {
         _connect = connect;
         _connection = _connect.DatabaseConnection();
     }
-    public string GetAllCustomerData()
+    public IEnumerable<CustomerData> GetAllCustomerData()
     {
-        _connection.Open();
-        var GetAllCustomer = "select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id;";
-        _connection.Close();
+        var GetAllCustomer = _connection.Query<CustomerData>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;");
         return GetAllCustomer;
     }
+    public async Task<int> CreateNewCustomer(CustomerData NewCustomer)
+    {
+        var AddStudent = _connection.Execute($"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{NewCustomer.Name}','{NewCustomer.CustomerCode}','{NewCustomer.PostalCode}','{NewCustomer.landmark}','{NewCustomer.Address}','{NewCustomer.CityID}')", NewCustomer);
+        return AddStudent;
+    }
+    public async Task<int> UpdateCustomer(CustomerData customer)
+    {
+        var update = _connection.Execute($"Update customer set Name='{customer.Name}',customercode='{customer.CustomerCode}',postalcode='{customer.PostalCode}',landmark='{customer.landmark}',address='{customer.Address}',c_id='{customer.CityID}' where id='{customer.Id}'", customer);
+        return update;
+    }
+    public async Task<int> DeleteCustomer(int id)
+    {
+        var delete = _connection.Execute($"delete From customer where id={id} ");
+        return delete;
+    }
+
     //public string GetById(int id)
     //{
     //    var getbyid = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
@@ -35,20 +46,8 @@ public class DataBaseOperation : IDataBaseOperation
     //    var getbyname = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={CustomerName};";
     //    return getbyname;
     //}
-    //public string AddCustomer(CustomerData NewCustomer)
-    //{
-    //    var customer = $"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{NewCustomer.Name}','{NewCustomer.CustomerCode}','{NewCustomer.PostalCode}','{NewCustomer.landmark}','{NewCustomer.Address}','{NewCustomer.CityID}')";
-    //    return customer;
-    //}
-    //public string UpdateCustomer(CustomerData NewCustomer)
-    //{
-    //    var update_customer = $"Update customer set Name='{NewCustomer.Name}',customercode='{NewCustomer.CustomerCode}',postalcode='{NewCustomer.PostalCode}',landmark='{NewCustomer.landmark}',address='{NewCustomer.Address}',c_id='{NewCustomer.CityID}' where id='{NewCustomer.Id}'";
-    //    return update_customer;
-    //}
-    //public string DeleteCustomer(int id)
-    //{
-    //    var deleteCustomer = $"delete From customer where id={id} ";
-    //    return deleteCustomer;
-    //}
 
 }
+
+
+

@@ -1,8 +1,9 @@
 ﻿namespace Infrastructure
 {
+    using Infrastructure.Interfaces;
     using Microsoft.Extensions.Configuration;
     using System.Data.SqlClient;
-    public class DbConnection 
+    public class DbConnection : IDbConnection
     {
         private readonly string _connectionString;
         private IConfiguration _configuration;

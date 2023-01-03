@@ -4,14 +4,13 @@ namespace Infrastructure.Interfaces
 {
     public interface IDataBaseOperation
     {
-        //public IEnumerable<CustomerData> GetAllCustomerData();
-        public string GetAllCustomerData();
+        public IEnumerable<CustomerData> GetAllCustomerData();  
+        public Task<int> CreateNewCustomer(CustomerData customer);
+        public Task<int> UpdateCustomer(CustomerData customer);       
+        public Task<int> DeleteCustomer(int id);
+
         //public string GetById(int id);
         //public string GetByName(string CustomerName);
-        //public string AddCustomer(CustomerData NewCustomer);
-        //public string UpdateCustomer(CustomerData NewCustomer);
-        //public string DeleteCustomer(int id);
-
-
+     
     }
 }

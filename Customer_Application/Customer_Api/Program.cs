@@ -1,5 +1,5 @@
-using Infrastructure;
 using Contract;
+using Infrastructure;
 using Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// interface configuration
+// interface Register
 builder.Services.AddSingleton<IDataBaseOperation , DataBaseOperation>();
-//builder.Services.AddTransient<IDbConnection, DbConnection>();
+builder.Services.AddSingleton<IDbConnection, DbConnection>();
 
 builder.Services.AddCors(options =>
 {
@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-//NserviceBus
+//NserviceBus Implimentation
 builder.Host.UseNServiceBus(Context => {
 
     var endpointConfiguration = new EndpointConfiguration("Customer_Api");
