@@ -20,12 +20,24 @@
         }
 
         [HttpGet ("getallcustomer")]
-        public IActionResult GetAllCustomerData()
+        public async Task<IActionResult> GetAllCustomerData()
         {            
-            var Customers = _DataBaseOperation.GetAllCustomerData();
-            return Ok(Customers);
+            var Customers =_DataBaseOperation.GetAllCustomerData();
+            return Ok(await Customers);
         }
 
+        [HttpGet("getbyid")]
+        public async Task<IActionResult> getbyid(int id)
+        {
+            return Ok(await _DataBaseOperation.GetCustomerByID(id));
+        }
+
+        [HttpGet("getbyname")]
+        public async Task<ActionResult<CustomerData>> getcustomerbyname(string customername)
+        {
+            var getcustomerbyid = await _DataBaseOperation.GetCustomerByName(customername);
+            return Ok(getcustomerbyid);
+        }
         [HttpPost ("addcustomer")]
         public async Task<IActionResult> Post(CustomerData cusdata)
         {
@@ -33,7 +45,6 @@
             var sendData = _session.Send(new UserDataAdd(cusdata.Id, cusdata.Name, cusdata.CustomerCode, cusdata.PostalCode, cusdata.landmark, cusdata.Address, cusdata.CityID));
             return Ok(add);
         }
-
         //update using Async
         [HttpPut("updatecustomer")]
         public async Task<IActionResult> Put([FromBody] CustomerData newcustomer)
@@ -48,20 +59,5 @@
         {
             return Ok(await _DataBaseOperation.DeleteCustomer(id));
         }
-
-        //[HttpGet("getbyid")]
-        //public async Task<ActionResult<CustomerData>> getcustomerbyid(int customerid)
-        //{
-        //    using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-        //    var getcustomerbyid = await connection.QueryFirstAsync<CustomerData>(_DataBaseOperation.GetById(customerid));
-        //    return Ok(getcustomerbyid);
-        //}
-        //[HttpGet("getbyname")]
-        //public async Task<ActionResult<CustomerData>> getcustomerbyname(string customername)
-        //{
-        //    using var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
-        //    var getcustomerbyid = await connection.QueryFirstAsync<CustomerData>(_DataBaseOperation.GetByName(customername));
-        //    return Ok(getcustomerbyid);
-        //}
     }
 }

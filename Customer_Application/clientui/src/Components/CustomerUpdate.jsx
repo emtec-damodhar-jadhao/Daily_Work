@@ -5,11 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function CustomerUpdate() {
-  let updateUrl = "https://localhost:7234/api/CustomerData/updatecustomer";
+  let updateUrl = "https://localhost:7234/api/Customer/updatecustomer";
 
   let navigate = useNavigate();
 
-  let [newcustomer, setnewcustomer] = useState({});
+  let [newcustomer, setnewcustomer] = useState({
+   
+    "c_name": "",
+    "s_name": "",
+   
+  });
   // let [CustomerID, setCustomerID] =useState(0);
 
   let onChangeHandle = (e) => {
@@ -19,7 +24,7 @@ function CustomerUpdate() {
   let UpdateData = () => {
     console.log(newcustomer);
     axios.put(updateUrl, newcustomer);
-    alert("Data Updated Successfully successfully")
+    alert("Data Updated Successfully ")
     navigate("/GetAllCustomers");
   };
 
@@ -60,7 +65,7 @@ function CustomerUpdate() {
             <label htmlFor="PostalCode" className="form-label">
               Postal Code
             </label>
-            <input name="PostalCode" type="text" onChange={onChangeHandle}  className="form-control" id="PostalCode" />
+            <input name="PostalCode" type="number" onChange={onChangeHandle}  className="form-control" id="PostalCode" />
           </div>
           <div className="col-md-4">
             <label htmlFor="inputCity" className="form-label">

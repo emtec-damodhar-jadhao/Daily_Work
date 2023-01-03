@@ -11,9 +11,8 @@
         public string c_name { get; set; } = String.Empty;
         public string s_name { get; set; } = String.Empty;
         public string Address { get; set; }
-        public int CityId { get; set; }      
+        public int CityId { get; set; }    
        
-
         public UserDataAdd(int id, string name, string customerCode, int postalCode, string landmark, string address, int cityID)
         {
             Id = id;

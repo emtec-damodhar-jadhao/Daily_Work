@@ -4,12 +4,15 @@ import axios  from "axios";
 import { useState,useEffect } from "react";
 
 function AllCustomer() {
-  const baseURL = "https://localhost:7234/api/CustomerData/getallcustomer";
-  const deleteurl="https://localhost:7234/api/CustomerData/deletecustomer";
+  const baseURL = "https://localhost:7234/api/Customer/getallcustomer";
+  const deleteurl="https://localhost:7234/api/Customer/deletecustomer";
+
+  
     const [getdata, setGetdata] = useState([]);
   
     useEffect(() => {
       axios.get(baseURL).then((response) => {
+        console.log(response.data);
         setGetdata(response.data);
       });      
     }, []);
@@ -49,9 +52,9 @@ function AllCustomer() {
                     <tr key={index}>
                       <th scope="row" >{index+1}</th>
                     <th scope="row" >{val.id}</th>
-                    <td>{val.Name}</td>
-                    <td>{val.customercode}</td>
-                    <td>{val.postalcode}</td>
+                    <td>{val.name}</td>
+                    <td>{val.customerCode}</td>
+                    <td>{val.postalCode}</td>
                     <td>{val.landmark}</td>
                     <td>{val.c_name}</td>
                     <td>{val.s_name}</td>

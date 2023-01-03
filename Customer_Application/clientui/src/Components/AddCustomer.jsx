@@ -5,19 +5,24 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function AddCustomer() {
-  let postUrl = "https://localhost:7234/api/CustomerData/addcustomer";
+  let postUrl = "https://localhost:7234/api/Customer/addcustomer";
 
   let navigate = useNavigate();
 
-  let [newcustomer, setnewcustomer] = useState({});
+  let [NewCustomer, SetNewCustomer] = useState({  
+      
+      "c_name": "",
+      "s_name": "",    
+    
+  });
 
   let onChangeHandle = (e) => {
-    setnewcustomer({ ...newcustomer, [e.target.name]: e.target.value });
+    SetNewCustomer({ ...NewCustomer, [e.target.name]: e.target.value });
   };
 
   let submit = () => {
-    console.log(newcustomer);
-    axios.post(postUrl, newcustomer);
+    console.log(NewCustomer);
+    axios.post(postUrl, NewCustomer);
     alert("Data Added successfully")
     navigate("/GetAllCustomers");
   };
@@ -54,7 +59,7 @@ function AddCustomer() {
             <label htmlFor="PostalCode" className="form-label">
               Postal Code
             </label>
-            <input name="PostalCode" type="text" onChange={onChangeHandle}  className="form-control" id="PostalCode" />
+            <input name="PostalCode" type="number" onChange={onChangeHandle}  className="form-control" id="PostalCode" />
           </div>
           <div className="col-md-4">
             <label htmlFor="State" className="form-label">
@@ -67,7 +72,7 @@ function AddCustomer() {
             <label htmlFor="inputCity" className="form-label">
               City_Id
             </label>
-            <input name="CityId" type="number" onChange={onChangeHandle} className="form-control" id="inputCity" />
+            <input name="CityID" type="number" onChange={onChangeHandle} className="form-control" id="inputCity" />
           </div>
           <div className="col-12">
             <label htmlFor="inputAddress" className="form-label">

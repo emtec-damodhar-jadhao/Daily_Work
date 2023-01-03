@@ -2,10 +2,7 @@
 using Domain;
 using Infrastructure.Interfaces;
 using System.Data.SqlClient;
-
-
 namespace Infrastructure;
-
 public class DataBaseOperation : IDataBaseOperation
 {
     private readonly IDbConnection _connect;
@@ -15,10 +12,22 @@ public class DataBaseOperation : IDataBaseOperation
         _connect = connect;
         _connection = _connect.DatabaseConnection();
     }
-    public IEnumerable<CustomerData> GetAllCustomerData()
+    public async Task<IEnumerable<CustomerData>> GetAllCustomerData()
     {
         var GetAllCustomer = _connection.Query<CustomerData>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;");
         return GetAllCustomer;
+    }
+    public async Task<IEnumerable<CustomerData>> GetCustomerByID(int id)
+    {
+        var getbyid = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
+        var getdata = _connection.Query<CustomerData>(getbyid);
+        return getdata;
+    }
+    public async Task<IEnumerable<CustomerData>> GetCustomerByName(string CustomerName)
+    {
+        var sql = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={CustomerName};";
+        var getdata = _connection.Query<CustomerData>(sql);
+        return getdata;
     }
     public async Task<int> CreateNewCustomer(CustomerData NewCustomer)
     {
@@ -35,19 +44,10 @@ public class DataBaseOperation : IDataBaseOperation
         var delete = _connection.Execute($"delete From customer where id={id} ");
         return delete;
     }
-
-    //public string GetById(int id)
-    //{
-    //    var getbyid = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
-    //    return getbyid;
-    //}
-    //public string GetByName(string CustomerName)
-    //{
-    //    var getbyname = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={CustomerName};";
-    //    return getbyname;
-    //}
-
 }
+
+
+
 
 
 
