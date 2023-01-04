@@ -1,8 +1,8 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import {Link}  from 'react-router-dom';
 
 function CustomerUpdate() {
   let updateUrl = "https://localhost:7234/api/Customer/updatecustomer";
@@ -22,18 +22,28 @@ function CustomerUpdate() {
   };  
 
   let UpdateData = () => {
-    console.log(newcustomer);
-    axios.put(updateUrl, newcustomer);
+     axios.put(updateUrl, newcustomer);
     alert("Data Updated Successfully ")
-    navigate("/GetAllCustomers");
+    navigate("/");
   };
 
   return (
     <>
-    <Navbar/>
+    {/* navbar start */}
+    <section className='container-fluid m-1'>
+   <header className="d-flex justify-content-center py-3 bg-warning ">
+      <ul className="nav nav-pills">
+        <li className="nav-item"  ><Link to="/" className="nav-link text-dark">All</Link></li>
+       <li className="nav-item" ><Link to="/AddNewCustomer" className="nav-link text-dark">New</Link></li>
+        <li className="nav-item" style={{borderBottom:"2px solid red", }}><Link to="/UpdateCustomer" className="nav-link text-dark">Update</Link></li>
+      </ul>
+    </header>
+   </section>
+    {/* Navbar End */}
+    
     <section className="container">
         <form className="row g-3 border m-5 p-4">
-          <h4 className="">Update Customer Data</h4>
+          <h4 className="bg-success  p-2 ">Update Customer Data</h4>
           <hr />
           <div className="col-md-6">
             <label htmlFor="name" className="form-label">

@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
 import axios  from "axios";
 import { useState,useEffect } from "react";
+import {Link}  from 'react-router-dom';
 
 function AllCustomer() {
   const baseURL = "https://localhost:7234/api/Customer/getallcustomer";
@@ -25,16 +25,26 @@ function AllCustomer() {
 
   return (
     <>
-      <Navbar />
+      {/* navbar start */}
+      <section className='container-fluid m-1'>
+   <header className="d-flex justify-content-center py-3 bg-warning ">
+      <ul className="nav nav-pills">
+        <li className="nav-item" style={{borderBottom:"2px solid red", }} ><Link to="/" className="nav-link text-dark">All</Link></li>
+       <li className="nav-item" ><Link to="/AddNewCustomer" className="nav-link text-dark">New</Link></li>
+        <li className="nav-item"><Link to="/UpdateCustomer" className="nav-link text-dark">Update</Link></li>
+      </ul>
+    </header>
+   </section>
+    {/* Navbar End */}
+     
       <div className="container">
         <h4 className="bg-success p-1 m-4">Available Customers</h4>
         {/* table Start */}
         <section className="m-5">
-          <table className="table border  table-hour">
+          <table className="table border table-responsive table-hour">
             <thead>
               <tr className="table-dark">
               <th scope="col">Sr.No</th>
-                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Customer Code</th>
                 <th scope="col">Postal Code</th>
@@ -49,9 +59,8 @@ function AllCustomer() {
               {
                 getdata.map((val,index)=>{
                   return(
-                    <tr key={index}>
+                    <tr className="p-2" key={index}>
                       <th scope="row" >{index+1}</th>
-                    <th scope="row" >{val.id}</th>
                     <td>{val.name}</td>
                     <td>{val.customerCode}</td>
                     <td>{val.postalCode}</td>
@@ -59,9 +68,9 @@ function AllCustomer() {
                     <td>{val.c_name}</td>
                     <td>{val.s_name}</td>
                     <td>{val.address}</td>
-                    <td className="d-flex">
+                    <td>
                       <form action="">
-                      <button type="submit" onClick={deletedata} className="btn ms-1 btn-danger" id={val.id}>Delete</button>
+                      <button type="submit" onClick={deletedata} className="btn  btn-outline-danger" id={val.id}>Delete</button>
                    
                       </form>
                      </td>

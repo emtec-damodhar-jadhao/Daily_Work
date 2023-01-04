@@ -14,34 +14,34 @@ public class DataBaseOperation : IDataBaseOperation
     }
     public async Task<IEnumerable<CustomerData>> GetAllCustomerData()
     {
-        var GetAllCustomer = _connection.Query<CustomerData>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;");
+        var GetAllCustomer =await _connection.QueryAsync<CustomerData>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;").ConfigureAwait(false);
         return GetAllCustomer;
     }
     public async Task<IEnumerable<CustomerData>> GetCustomerByID(int id)
     {
         var getbyid = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
-        var getdata = _connection.Query<CustomerData>(getbyid);
+        var getdata =await  _connection.QueryAsync<CustomerData>(getbyid);
         return getdata;
     }
     public async Task<IEnumerable<CustomerData>> GetCustomerByName(string CustomerName)
     {
         var sql = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={CustomerName};";
-        var getdata = _connection.Query<CustomerData>(sql);
+        var getdata =await _connection.QueryAsync<CustomerData>(sql);
         return getdata;
     }
     public async Task<int> CreateNewCustomer(CustomerData NewCustomer)
     {
-        var AddStudent = _connection.Execute($"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{NewCustomer.Name}','{NewCustomer.CustomerCode}','{NewCustomer.PostalCode}','{NewCustomer.landmark}','{NewCustomer.Address}','{NewCustomer.CityID}')", NewCustomer);
+        var AddStudent =await _connection.ExecuteAsync($"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{NewCustomer.Name}','{NewCustomer.CustomerCode}','{NewCustomer.PostalCode}','{NewCustomer.landmark}','{NewCustomer.Address}','{NewCustomer.CityID}')", NewCustomer).ConfigureAwait(false);
         return AddStudent;
     }
     public async Task<int> UpdateCustomer(CustomerData customer)
     {
-        var update = _connection.Execute($"Update customer set Name='{customer.Name}',customercode='{customer.CustomerCode}',postalcode='{customer.PostalCode}',landmark='{customer.landmark}',address='{customer.Address}',c_id='{customer.CityID}' where id='{customer.Id}'", customer);
+        var update =await  _connection.ExecuteAsync($"Update customer set Name='{customer.Name}',customercode='{customer.CustomerCode}',postalcode='{customer.PostalCode}',landmark='{customer.landmark}',address='{customer.Address}',c_id='{customer.CityID}' where id='{customer.Id}'", customer).ConfigureAwait(false);
         return update;
     }
     public async Task<int> DeleteCustomer(int id)
     {
-        var delete = _connection.Execute($"delete From customer where id={id} ");
+        var delete =await  _connection.ExecuteAsync($"delete From customer where id={id} ").ConfigureAwait(false);
         return delete;
     }
 }

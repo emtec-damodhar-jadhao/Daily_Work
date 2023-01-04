@@ -38,7 +38,8 @@
             var getcustomerbyid = await _DataBaseOperation.GetCustomerByName(customername);
             return Ok(getcustomerbyid);
         }
-        [HttpPost ("addcustomer")]
+
+        [HttpPost ("customer")]
         public async Task<IActionResult> Post(CustomerData cusdata)
         {
             var add =await  _DataBaseOperation.CreateNewCustomer(cusdata);
@@ -46,7 +47,7 @@
             return Ok(add);
         }
         //update using Async
-        [HttpPut("updatecustomer")]
+        [HttpPut("customer")]
         public async Task<IActionResult> Put([FromBody] CustomerData newcustomer)
         {
             var result = await _DataBaseOperation.UpdateCustomer(newcustomer);
@@ -54,7 +55,7 @@
             return Ok(result);
         }
 
-        [HttpDelete("deletecustomer")]
+        [HttpDelete]
         public async Task<IActionResult> deletestudent(int id)
         {
             return Ok(await _DataBaseOperation.DeleteCustomer(id));
