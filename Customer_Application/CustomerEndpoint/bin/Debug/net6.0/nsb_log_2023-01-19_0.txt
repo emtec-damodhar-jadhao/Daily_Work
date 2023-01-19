@@ -1,4 +1,0 @@
-﻿2023-01-19 10:55:43.661 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
-2023-01-19 10:55:44.057 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
-License Expiration: 2023-04-03
-2023-01-19 11:07:53.583 INFO   Name:Tejas customercode:Tj123,postalcode:443308,landmark;Z P School ,address:Pimpalgaon Kuda,cityId:2
