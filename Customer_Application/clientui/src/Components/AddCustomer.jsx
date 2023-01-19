@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useAddNewCustomerMutation } from "../redux/Features/Post";
+import { useAddNewCustomerMutation, useGetAllPostQuery } from "../redux/Features/Post";
 
 function AddCustomer() {
+  const AllData = useGetAllPostQuery();
   let [HideData, SetHideData] = useState(true);
-  const [AddNewOne, result] = useAddNewCustomerMutation();
+  let[Pass,SetPass]=useState(false);
+    const [AddNewOne, result] = useAddNewCustomerMutation();
   let [NewCustomer, SetNewCustomer] = useState({
     c_name: "",
     s_name: "",
@@ -13,7 +15,15 @@ function AddCustomer() {
   let onChangeHandle = (e) => {
     SetNewCustomer({ ...NewCustomer, [e.target.name]: e.target.value });
   };
-
+  let isUnique=()=>{
+    for(let i=0;i< AllData.length;i++)
+    {
+      if(AllData[i].CustomerCode == NewCustomer.CustomerCode){
+        SetPass(false)
+      }
+    }
+    SetPass(true)
+  }
   return (
     <>
       {/* navbar start */}
@@ -131,8 +141,14 @@ function AddCustomer() {
             <div className="col-12">
               <button
                 onClick={() => {
-                  AddNewOne(NewCustomer);
-                  SetHideData(false)
+                  isUnique();
+                  if(Pass){
+                    AddNewOne(NewCustomer);
+                    SetHideData(false)
+                  }else{
+                    alert("Customer Code Already exist")
+                  }
+
                 }}
                 type="button"
                 className="btn btn-success"

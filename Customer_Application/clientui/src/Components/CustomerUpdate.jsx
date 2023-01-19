@@ -3,17 +3,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useUpdateCustomerMutation } from "../redux/Features/Post";
 
-function CustomerUpdate() {
+function CustomerUpdate() {  
   let [UpdateHide, setUpdateHide] = useState(true);
   let [NewCustomer, SetNewCustomer] = useState({
     c_name: "",
     s_name: "",
   });
   const [UpdateData, result] = useUpdateCustomerMutation();
+
   let onChangeHandle = (e) => {
     SetNewCustomer({ ...NewCustomer, [e.target.name]: e.target.value });
   };
-
+  
   return (
     <>
       {/* navbar start */}
