@@ -1,5 +1,6 @@
 ﻿namespace Customer_Api.Controllers
 {
+    using AutoMapper;
     using Contract;
     using Domain;
     using Infrastructure.Interfaces;
@@ -12,13 +13,14 @@
         private readonly IDataBaseOperation _DataBaseOperation;
         private readonly ILogger<CustomerController> _logger;
         private readonly IMessageSession _session;
-        public CustomerController( IDataBaseOperation DataBaseOperation, ILogger<CustomerController> logger, IMessageSession session)
+        private readonly IMapper _mapper;
+        public CustomerController( IDataBaseOperation DataBaseOperation, ILogger<CustomerController> logger, IMessageSession session,IMapper mapper)
         {            
             _DataBaseOperation = DataBaseOperation;
             _logger = logger;
             _session = session;
+            _mapper = mapper;
         }
-
         [HttpGet ("getallcustomer")]
         public async Task<IActionResult> GetAllCustomerData()
         {            
@@ -27,36 +29,37 @@
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> getbyid(int id)
+        public async Task<IActionResult> Getbyid(int id)
         {
-            return Ok(await _DataBaseOperation.GetCustomerByID(id));
+            var getstudent = await _DataBaseOperation.GetCustomerByID(id);
+            return Ok(getstudent);            
         }
 
         [HttpGet("getbyname")]
-        public async Task<ActionResult<CustomerData>> getcustomerbyname(string customername)
+        public async Task<ActionResult<Customer>> GetCustomerByName(string name)
         {
-            var getcustomerbyid = await _DataBaseOperation.GetCustomerByName(customername);
+            var getcustomerbyid = await _DataBaseOperation.GetCustomerByName(name);
             return Ok(getcustomerbyid);
         }
 
-        [HttpPost ("customer")]
-        public async Task<IActionResult> Post(CustomerData cusdata)
+        [HttpPost ]
+        public async Task<IActionResult> AddCustomer(Customer customer)
         {
-            var add =await  _DataBaseOperation.CreateNewCustomer(cusdata);
-            var sendData = _session.Send(new UserDataAdd(cusdata.Id, cusdata.Name, cusdata.CustomerCode, cusdata.PostalCode, cusdata.landmark, cusdata.Address, cusdata.CityID));
-            return Ok(add);
-        }
-        //update using Async
-        [HttpPut("customer")]
-        public async Task<IActionResult> Put([FromBody] CustomerData newcustomer)
+            var add =await  _DataBaseOperation.AddCustomer(customer);
+            var sendData = _session.Send(new CustomerDto(customer.Id, customer.Name, customer.CustomerCode, customer.PostalCode, customer.landmark, customer.Address, customer.CityID));
+            return Accepted(add);
+        }     
+                
+        [HttpPut]
+        public async Task<IActionResult> UpdateCustomer([FromBody] Customer customer)
         {
-            var result = await _DataBaseOperation.UpdateCustomer(newcustomer);
-            var send = _session.Send(new UserDataAdd(newcustomer.Id, newcustomer.Name, newcustomer.CustomerCode, newcustomer.PostalCode, newcustomer.landmark, newcustomer.Address, newcustomer.CityID));
+            var result = await _DataBaseOperation.UpdateCustomer(customer);
+            var send = _session.Send(new CustomerDto(customer.Id, customer.Name, customer.CustomerCode, customer.PostalCode, customer.landmark, customer.Address, customer.CityID));
             return Ok(result);
-        }
+        }     
 
         [HttpDelete]
-        public async Task<IActionResult> deletestudent(int id)
+        public async Task<IActionResult> DeleteCustomer(int id)
         {
             return Ok(await _DataBaseOperation.DeleteCustomer(id));
         }

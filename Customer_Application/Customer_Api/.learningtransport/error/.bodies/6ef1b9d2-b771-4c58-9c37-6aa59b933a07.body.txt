@@ -1,0 +1,1 @@
+﻿{"postalCode":234326,"Id":11,"Name":"Rohit","CustomerCode":"rohit123","landmark":"abc","c_name":"","s_name":"","Address":"xyz","CityId":2}

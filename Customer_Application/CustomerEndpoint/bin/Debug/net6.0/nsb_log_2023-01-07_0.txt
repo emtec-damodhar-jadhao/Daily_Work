@@ -1,0 +1,3 @@
+﻿2023-01-07 23:58:56.599 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-07 23:58:57.539 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03

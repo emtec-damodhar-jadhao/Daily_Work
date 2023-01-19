@@ -1,0 +1,17 @@
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Contract.dll
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Contract.pdb
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll

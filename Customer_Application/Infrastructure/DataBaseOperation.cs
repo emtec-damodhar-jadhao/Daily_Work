@@ -12,29 +12,29 @@ public class DataBaseOperation : IDataBaseOperation
         _connect = connect;
         _connection = _connect.DatabaseConnection();
     }
-    public async Task<IEnumerable<CustomerData>> GetAllCustomerData()
+    public async Task<IEnumerable<Customer>> GetAllCustomerData()
     {
-        var GetAllCustomer =await _connection.QueryAsync<CustomerData>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;").ConfigureAwait(false);
+        var GetAllCustomer =await _connection.QueryAsync<Customer>("select id,Name,customercode,s_name, c_name,postalcode,landmark,address from state s,city c,customer cus where s.s_id = c.s_id and c.c_id = cus.c_id;").ConfigureAwait(false);
         return GetAllCustomer;
     }
-    public async Task<IEnumerable<CustomerData>> GetCustomerByID(int id)
+    public async Task<IEnumerable<Customer>> GetCustomerByID(int id)
     {
         var getbyid = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
-        var getdata =await  _connection.QueryAsync<CustomerData>(getbyid);
+        var getdata =await  _connection.QueryAsync<Customer>(getbyid);      
         return getdata;
     }
-    public async Task<IEnumerable<CustomerData>> GetCustomerByName(string CustomerName)
+    public async Task<IEnumerable<Customer>> GetCustomerByName(string name)
     {
-        var sql = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={CustomerName};";
-        var getdata =await _connection.QueryAsync<CustomerData>(sql);
+        var sql = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={name};";
+        var getdata =await _connection.QueryAsync<Customer>(sql);
         return getdata;
     }
-    public async Task<int> CreateNewCustomer(CustomerData NewCustomer)
+    public async Task<int> AddCustomer(Customer customer)
     {
-        var AddStudent =await _connection.ExecuteAsync($"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{NewCustomer.Name}','{NewCustomer.CustomerCode}','{NewCustomer.PostalCode}','{NewCustomer.landmark}','{NewCustomer.Address}','{NewCustomer.CityID}')", NewCustomer).ConfigureAwait(false);
+        var AddStudent =await _connection.ExecuteAsync($"INSERT INTO Customer(Name,customercode,postalcode,landmark,address,c_id) values('{customer.Name}','{customer.CustomerCode}','{customer.PostalCode}','{customer.landmark}','{customer.Address}','{customer.CityID}')", customer).ConfigureAwait(false);
         return AddStudent;
     }
-    public async Task<int> UpdateCustomer(CustomerData customer)
+    public async Task<int> UpdateCustomer(Customer customer)
     {
         var update =await  _connection.ExecuteAsync($"Update customer set Name='{customer.Name}',customercode='{customer.CustomerCode}',postalcode='{customer.PostalCode}',landmark='{customer.landmark}',address='{customer.Address}',c_id='{customer.CityID}' where id='{customer.Id}'", customer).ConfigureAwait(false);
         return update;

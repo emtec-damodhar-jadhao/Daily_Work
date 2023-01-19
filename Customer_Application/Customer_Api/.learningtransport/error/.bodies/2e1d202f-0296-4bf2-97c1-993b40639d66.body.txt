@@ -1,0 +1,1 @@
+﻿{"postalCode":0,"Id":0,"Name":"string","CustomerCode":"string","landmark":"string","c_name":"","s_name":"","Address":"string","CityId":2}

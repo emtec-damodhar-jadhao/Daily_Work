@@ -1,0 +1,4 @@
+﻿2023-01-09 11:24:23.609 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-09 11:24:24.108 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-09 12:28:29.248 INFO   Name:Damodhar jadhao customercode:Dj@123,postalcode:443308,landmark;abc,address:xyz,cityId:3

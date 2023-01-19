@@ -10,6 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// automapper
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 
 // interface Register
 builder.Services.AddSingleton<IDataBaseOperation , DataBaseOperation>();
@@ -31,10 +34,10 @@ builder.Services.AddCors(options =>
 builder.Host.UseNServiceBus(Context => {
 
     var endpointConfiguration = new EndpointConfiguration("Customer_Api");
-
+    //endpointConfiguration.UseSerialization<NewtonsoftJsonSerializer>();
     var transport = endpointConfiguration.UseTransport<LearningTransport>();
 
-    transport.Routing().RouteToEndpoint(typeof(UserDataAdd), "CustomerEndpoint");
+    transport.Routing().RouteToEndpoint(typeof(CustomerDto), "CustomerEndpoint");
     endpointConfiguration.EnableInstallers();
 
     return endpointConfiguration;

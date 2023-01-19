@@ -1,0 +1,28 @@
+﻿2023-01-05 11:32:43.873 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 11:32:44.191 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 11:34:42.089 INFO   Name:vishal customercode:Vi@123,postalcode:443308,landmark;Near Zeel High School,address:Dusarbid,cityId:6
+2023-01-05 11:35:29.497 INFO   Name:vishal customercode:Vi@123,postalcode:443308,landmark;Near Zeel High School,address:Dusarbid,cityId:6
+2023-01-05 11:42:41.629 INFO   Name:string customercode:string,postalcode:0,landmark;string,address:string,cityId:2
+2023-01-05 11:43:32.155 INFO   Name:abc customercode:string,postalcode:0,landmark;string,address:string,cityId:3
+2023-01-05 11:43:47.712 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 11:43:48.132 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 11:44:18.839 INFO   Name:xyz customercode:string,postalcode:0,landmark;string,address:string,cityId:3
+2023-01-05 11:47:55.935 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 11:47:56.399 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 11:48:16.629 INFO   Name:string customercode:string,postalcode:0,landmark;string,address:string,cityId:5
+2023-01-05 11:49:17.969 INFO   Name:sandhya awghade customercode:sandy123,postalcode:3465343,landmark;Deulgaon  raja High School,address:asch,cityId:1
+2023-01-05 14:00:41.287 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 14:00:41.688 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 14:44:13.576 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 14:44:14.015 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 14:59:48.176 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 14:59:48.601 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-05 16:24:37.153 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-05 16:24:37.594 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03

@@ -1,0 +1,226 @@
+﻿2023-01-06 10:00:27.642 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:00:28.013 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:06:04.673 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:06:05.094 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:07:56.768 ERROR Moving message '0b7ea721-470b-44bc-8095-af82004c5662' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message 0b7ea721-470b-44bc-8095-af82004c5662
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.UnitOfWorkBehavior.InvokeUnitsOfWork(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/UnitOfWork/UnitOfWorkBehavior.cs:line 42
+   at NServiceBus.MutateIncomingTransportMessageBehavior.InvokeIncomingTransportMessagesMutators(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/MessageMutators/MutateTransportMessage/MutateIncomingTransportMessageBehavior.cs:line 60
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: 0b7ea721-470b-44bc-8095-af82004c5662
+	Transport message ID: 3ac44699-4245-4cb8-bfdf-b1925cc2d2e8
+	Pipeline canceled: False
+2023-01-06 10:11:40.652 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:11:41.082 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:16:41.684 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:16:42.108 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:18:14.361 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:18:14.824 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:21:36.241 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:21:36.687 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:22:44.479 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:22:44.937 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:24:53.770 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:24:54.263 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:30:36.753 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:30:37.210 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:31:24.578 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:31:25.001 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:37:15.205 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:37:15.655 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:39:10.591 ERROR Moving message 'e740558f-a3a2-4959-8883-af820054ea29' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message e740558f-a3a2-4959-8883-af820054ea29
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.UnitOfWorkBehavior.InvokeUnitsOfWork(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/UnitOfWork/UnitOfWorkBehavior.cs:line 42
+   at NServiceBus.MutateIncomingTransportMessageBehavior.InvokeIncomingTransportMessagesMutators(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/MessageMutators/MutateTransportMessage/MutateIncomingTransportMessageBehavior.cs:line 60
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: e740558f-a3a2-4959-8883-af820054ea29
+	Transport message ID: 8fc1722b-03b0-4408-ba10-c167b79fb0e4
+	Pipeline canceled: False
+2023-01-06 10:43:28.671 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:43:29.125 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:43:52.759 ERROR Moving message 'd52d3fdd-e16f-40cc-8465-af8200563445' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message d52d3fdd-e16f-40cc-8465-af8200563445
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.UnitOfWorkBehavior.InvokeUnitsOfWork(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/UnitOfWork/UnitOfWorkBehavior.cs:line 42
+   at NServiceBus.MutateIncomingTransportMessageBehavior.InvokeIncomingTransportMessagesMutators(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/MessageMutators/MutateTransportMessage/MutateIncomingTransportMessageBehavior.cs:line 60
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: d52d3fdd-e16f-40cc-8465-af8200563445
+	Transport message ID: 463573a3-62d5-406b-bf56-ee054d5a2169
+	Pipeline canceled: False
+2023-01-06 10:50:38.667 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 10:50:39.151 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 10:53:22.393 ERROR Moving message '0dda9ea0-476e-43fa-aa23-af820058bfe2' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message 0dda9ea0-476e-43fa-aa23-af820058bfe2
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.UnitOfWorkBehavior.InvokeUnitsOfWork(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/UnitOfWork/UnitOfWorkBehavior.cs:line 42
+   at NServiceBus.MutateIncomingTransportMessageBehavior.InvokeIncomingTransportMessagesMutators(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/MessageMutators/MutateTransportMessage/MutateIncomingTransportMessageBehavior.cs:line 60
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: 0dda9ea0-476e-43fa-aa23-af820058bfe2
+	Transport message ID: a96df85f-1ed6-4c61-a706-f14cb4f20289
+	Pipeline canceled: False
+2023-01-06 11:01:06.638 ERROR Moving message 'b588ffcb-35dc-4f4a-bd0a-af82005af129' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message b588ffcb-35dc-4f4a-bd0a-af82005af129
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: b588ffcb-35dc-4f4a-bd0a-af82005af129
+	Transport message ID: e88e86f4-1b38-442d-b16c-9c3a5814f14d
+	Pipeline canceled: False
+2023-01-06 11:12:17.283 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 11:12:17.767 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 11:12:36.643 ERROR Moving message 'fac3a80e-ad75-4726-886a-af82005e1859' to the error queue 'error' because processing failed due to an exception:
+NServiceBus.MessageDeserializationException: An error occurred while attempting to extract logical messages from incoming physical message fac3a80e-ad75-4726-886a-af82005e1859
+ ---> System.Xml.XmlException: Data at the root level is invalid. Line 1, position 1.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NServiceBus.XmlDeserialization.ReadStreamIntoDocument(Stream stream, Boolean sanitizeInput) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 80
+   at NServiceBus.XmlDeserialization.Deserialize(Stream stream, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlDeserialization.cs:line 32
+   at NServiceBus.XmlMessageSerializer.Deserialize(ReadOnlyMemory`1 body, IList`1 messageTypesToDeserialize) in /_/src/NServiceBus.Core/Serializers/XML/XmlMessageSerializer.cs:line 65
+   at NServiceBus.DeserializeMessageConnector.Extract(IncomingMessage physicalMessage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 112
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 46
+   --- End of inner exception stack trace ---
+   at NServiceBus.DeserializeMessageConnector.ExtractWithExceptionHandling(IncomingMessage message) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 50
+   at NServiceBus.DeserializeMessageConnector.Invoke(IIncomingPhysicalMessageContext context, Func`2 stage) in /_/src/NServiceBus.Core/Pipeline/Incoming/DeserializeMessageConnector.cs:line 28
+   at NServiceBus.UnitOfWorkBehavior.InvokeUnitsOfWork(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/UnitOfWork/UnitOfWorkBehavior.cs:line 42
+   at NServiceBus.MutateIncomingTransportMessageBehavior.InvokeIncomingTransportMessagesMutators(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/MessageMutators/MutateTransportMessage/MutateIncomingTransportMessageBehavior.cs:line 60
+   at NServiceBus.ProcessingStatisticsBehavior.Invoke(IIncomingPhysicalMessageContext context, Func`2 next) in /_/src/NServiceBus.Core/Performance/Statistics/ProcessingStatisticsBehavior.cs:line 25
+   at NServiceBus.TransportReceiveToPhysicalMessageConnector.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/Pipeline/Incoming/TransportReceiveToPhysicalMessageConnector.cs:line 35
+   at NServiceBus.RetryAcknowledgementBehavior.Invoke(ITransportReceiveContext context, Func`2 next) in /_/src/NServiceBus.Core/ServicePlatform/Retries/RetryAcknowledgementBehavior.cs:line 25
+   at NServiceBus.MainPipelineExecutor.Invoke(MessageContext messageContext, CancellationToken cancellationToken) in /_/src/NServiceBus.Core/Pipeline/MainPipelineExecutor.cs:line 44
+   at NServiceBus.LearningTransportMessagePump.ProcessFile(ILearningTransportTransaction transaction, String messageId, CancellationToken messageProcessingCancellationToken) in /_/src/NServiceBus.Core/Transports/Learning/LearningTransportMessagePump.cs:line 340
+Exception details:
+	Message ID: fac3a80e-ad75-4726-886a-af82005e1859
+	Transport message ID: 33f87510-f239-458a-b1bd-7c66ab9acbcc
+	Pipeline canceled: False
+2023-01-06 11:14:22.578 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 11:14:23.032 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 11:14:44.883 INFO   Name:zx customercode:string,postalcode:0,landmark;string,address:string,cityId:6
+2023-01-06 11:38:33.602 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 11:38:34.066 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 12:29:38.978 INFO   Name:Akash customercode:Ak123,postalcode:244343,landmark;abc,address:xyz,cityId:4
+2023-01-06 14:04:56.475 INFO  Logging to 'C:\Users\Damodhar.Jadhao\Desktop\Daily_Work\Customer_Application\CustomerEndpoint\bin\Debug\net6.0\' with level Info
+2023-01-06 14:04:56.947 INFO  Selected active license from C:\Users\Damodhar.Jadhao\AppData\Local\ParticularSoftware\license.xml
+License Expiration: 2023-04-03
+2023-01-06 14:06:58.811 INFO   Name:Damodhar jadhao customercode:Dj@123,postalcode:4433044,landmark;Deulgaon  raja High School,address:abc,cityId:2
