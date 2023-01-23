@@ -44,9 +44,19 @@ export const postApi = createApi({
     }),
     UpdateCustomer: builder.mutation({
       query: (EditCustomer) => {
-        console.log("Create New Customer :", EditCustomer);
+        console.log("Update New Customer :", EditCustomer);
         return {
           url: "/Customer",
+          method: "PUT",
+          body: EditCustomer,
+        };
+      },
+    }),
+    UpdateCustomerByCode: builder.mutation({
+      query: (EditCustomer) => {
+        console.log("Update New Customer :", EditCustomer);
+        return {
+          url: "/Customer/CustomerCode",
           method: "PUT",
           body: EditCustomer,
         };
@@ -61,4 +71,5 @@ export const {
   useDeleteCustomerMutation,
   useAddNewCustomerMutation,
   useUpdateCustomerMutation,
+  useUpdateCustomerByCodeMutation,
 } = postApi;

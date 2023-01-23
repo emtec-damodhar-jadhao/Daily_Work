@@ -4,40 +4,15 @@ import {
   useGetAllPostQuery,
   useDeleteCustomerMutation,
 } from "../redux/Features/Post";
+import Navbar from "./Navbar";
 
 function AllCustomer() {
   const responseInfo = useGetAllPostQuery();
   const [DeleteCustomer, result] = useDeleteCustomerMutation();
   return (
     <>
-      {/* navbar start */}
-      <section className="container-fluid m-1">
-        <header className="d-flex justify-content-center py-3 bg-warning ">
-          <ul className="nav nav-pills">
-            <li className="nav-item" style={{ borderBottom: "2px solid red" }}>
-              <Link to="/" className="nav-link text-dark">
-                All
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/AddNewCustomer" className="nav-link text-dark">
-                New
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/UpdateCustomer" className="nav-link text-dark">
-                Update
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/SearchCustomer" className="nav-link text-dark">
-                Search
-              </Link>
-            </li>
-          </ul>
-        </header>
-      </section>
-      {/* Navbar End */}
+    <Navbar/>
+     
       {responseInfo.isLoading && <h4>Loading data....</h4>}
       {responseInfo.isError && <h4>Error is found {responseInfo.error}</h4>}
       {responseInfo.isSuccess && (

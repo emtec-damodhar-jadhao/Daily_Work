@@ -63,5 +63,11 @@
         {
             return Ok(await _DataBaseOperation.DeleteCustomer(id));
         }
+        [HttpPut ("CustomerCode")]
+        public async Task<IActionResult> updateCustomerByCode([FromBody] Customer customer)
+        {
+            var result = await _DataBaseOperation.UpdateCustomerByCustomerCode(customer);
+            return Ok(result);
+        }
     }
 }

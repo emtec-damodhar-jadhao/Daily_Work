@@ -44,6 +44,12 @@ public class DataBaseOperation : IDataBaseOperation
         var delete =await  _connection.ExecuteAsync($"delete From customer where id={id} ").ConfigureAwait(false);
         return delete;
     }
+
+    public async Task<int> UpdateCustomerByCustomerCode(Customer customer)
+    {
+        var updateByCusCode = await _connection.ExecuteAsync($"Update customer set Name='{customer.Name}',postalcode='{customer.PostalCode}',landmark='{customer.landmark}',address='{customer.Address}',c_id='{customer.CityID}' where customercode='{customer.CustomerCode}'", customer).ConfigureAwait(false);
+        return updateByCusCode;
+    }
 }
 
 

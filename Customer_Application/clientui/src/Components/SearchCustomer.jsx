@@ -1,6 +1,7 @@
 import { useGetByIdQuery, useUpdateCustomerMutation } from "../redux/Features/Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function SearchCustomer() {
   const [id, SetId] = useState(0);
@@ -37,34 +38,8 @@ function SearchCustomer() {
 
   return (
     <>
-    {/* navbar start */}
-    <section className="container-fluid m-1">
-        <header className="d-flex justify-content-center py-3 bg-warning ">
-          <ul className="nav nav-pills">
-            <li className="nav-item" >
-              <Link to="/" className="nav-link text-dark">
-                All
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/AddNewCustomer" className="nav-link text-dark">
-                New
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/UpdateCustomer" className="nav-link text-dark">
-                Update
-              </Link>
-            </li>
-            <li className="nav-item" style={{ borderBottom: "2px solid red" }}>
-              <Link to="/SearchCustomer" className="nav-link text-dark">
-                Search
-              </Link>
-            </li>
-          </ul>
-        </header>
-      </section>
-      {/* Navbar End */}  
+    <Navbar/>
+  
       <div className="container m-5 d-flex justify-content-center">
             <div className="col-md-4">
             <input
