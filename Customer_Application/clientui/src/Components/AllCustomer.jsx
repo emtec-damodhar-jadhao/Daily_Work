@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   useGetAllPostQuery,
   useDeleteCustomerMutation,
@@ -8,13 +7,12 @@ import Navbar from "./Navbar";
 
 function AllCustomer() {
   const responseInfo = useGetAllPostQuery();
-  const [DeleteCustomer, result] = useDeleteCustomerMutation();
+  const [DeleteCustomer] = useDeleteCustomerMutation();
   return (
     <>
-    <Navbar/>
-     
+      <Navbar />
       {responseInfo.isLoading && <h4>Loading data....</h4>}
-      {responseInfo.isError && <h4>Error is found {responseInfo.error}</h4>}
+      {responseInfo.isError && <h4>Error is found </h4>}
       {responseInfo.isSuccess && (
         <div className="container">
           <h4 className="bg-success p-1 m-4">Available Customers</h4>
@@ -31,8 +29,7 @@ function AllCustomer() {
                   <th scope="col">City</th>
                   <th scope="col">State</th>
                   <th scope="col">Address</th>
-                  <th scope="col">Action</th>
-                 
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,9 +46,17 @@ function AllCustomer() {
                       <td>{val.address}</td>
                       <td>
                         <form action="">
-                        <button type='submit' className='btn btn-danger' onClick={()=>{DeleteCustomer(val.id)}}>Delete</button>
+                          <button
+                            type="submit"
+                            className="btn btn-danger"
+                            onClick={() => {
+                              DeleteCustomer(val.id);
+                            }}
+                          >
+                            Delete
+                          </button>
                         </form>
-                        </td>                   
+                      </td>
                     </tr>
                   );
                 })}

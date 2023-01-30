@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useAddNewCustomerMutation } from "../redux/Features/Post";
 import { useUpdateCustomerByCodeMutation } from "../redux/Features/Post";
-
 import Navbar from "./Navbar";
 import { useForm } from "react-hook-form";
 
@@ -11,6 +10,8 @@ function AddCustomer(props) {
   let template = {
     Title1: "Add New Customer",
     Title2: "Update Customer",
+    btn_name1 : "Add",
+    btn_name2 : "Update",
     fields: [
       {
         title: "Name",
@@ -43,16 +44,12 @@ function AddCustomer(props) {
         name: "Address",
       },
     ],
-  };
-
-  
-//  console.log(props)
-  
+  }; 
   let { register, handleSubmit } = useForm();
-  let { Title1,Title2, fields } = template;
+  let { Title1,Title2,btn_name1,btn_name2, fields } = template;
   let [HideData, SetHideData] = useState(true);
-  const [AddNewOne, result] = useAddNewCustomerMutation();
-  const [UpdateData, res] = useUpdateCustomerByCodeMutation();
+  const [AddNewOne] = useAddNewCustomerMutation();
+  const [UpdateData] = useUpdateCustomerByCodeMutation();
   
   let [NewCustomer, SetNewCustomer] = useState({
     c_name: "",
@@ -61,11 +58,17 @@ function AddCustomer(props) {
   let onChangeHandle = (e) => {
     SetNewCustomer({ ...NewCustomer, [e.target.name]: e.target.value });
   };
- let Title;
-  if(props.page === "AddCustomer"){
+
+  let Title;
+  let btn_name; 
+  if(props.page === "AddCustomer")
+  {
      Title = Title1;
-  }else{
+     btn_name=btn_name1;    
+  }else
+  {
     Title=Title2;
+    btn_name=btn_name2;
   }
   const renderFields = (fields) => {
     return fields.map((fields) => {
@@ -97,7 +100,6 @@ function AddCustomer(props) {
       ...NewCustomer,
       ...values
   };
-
     if(props.page === "AddCustomer"){
       AddNewOne(temp);
       SetHideData(false);
@@ -107,12 +109,9 @@ function AddCustomer(props) {
       Title="Update Customer"
     }    
   }
-
-
   return (
     <>
       <Navbar />
-
       {HideData && (
         <div className="container m-5">
           <form className="" onSubmit={handleSubmit(onSubmit)}>
@@ -123,7 +122,7 @@ function AddCustomer(props) {
               type="submit"
               className="btn btn-success"
             >
-              Submit
+             {btn_name}
             </button>
           </form>
         </div>

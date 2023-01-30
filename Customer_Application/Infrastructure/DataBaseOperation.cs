@@ -20,9 +20,11 @@ public class DataBaseOperation : IDataBaseOperation
     public async Task<IEnumerable<Customer>> GetCustomerByID(int id)
     {
         var getbyid = $"select id, Name,customercode,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.id ={id};";
-        var getdata =await  _connection.QueryAsync<Customer>(getbyid);      
+        //var getbyid = $"Select * from customer where id={id}";
+        var getdata = await _connection.QueryAsync<Customer>(getbyid);
         return getdata;
     }
+  
     public async Task<IEnumerable<Customer>> GetCustomerByName(string name)
     {
         var sql = $"select id, Name,customercode ,s_name, c_name, \r\npostalcode,landmark,address from state s, \r\ncity c, customer cus  where s.s_id = c.s_id and \r\nc.c_id = cus.c_id and cus.Name ={name};";

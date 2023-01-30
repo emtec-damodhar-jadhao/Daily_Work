@@ -45,11 +45,28 @@
         [HttpPost ]
         public async Task<IActionResult> AddCustomer(Customer customer)
         {
-            var add =await  _DataBaseOperation.AddCustomer(customer);
-            var sendData = _session.Send(new CustomerDto(customer.Id, customer.Name, customer.CustomerCode, customer.PostalCode, customer.landmark, customer.Address, customer.CityID));
-            return Accepted(add);
-        }     
-                
+            try
+            {
+                var All =await _DataBaseOperation.GetAllCustomerData();                
+                var add = await _DataBaseOperation.AddCustomer(customer);
+                var sendData = _session.Send(new CustomerDto(customer.Id, customer.Name, customer.CustomerCode, customer.PostalCode, customer.landmark, customer.Address, customer.CityID));
+              
+                foreach (var item in All)
+                {
+                    if (item.CustomerCode == customer.CustomerCode)
+                    {
+                        return BadRequest("CustomerCode Already exist");
+                    }
+                }
+                return Accepted(add);
+            }
+            catch (Exception ex) 
+            { 
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateCustomer([FromBody] Customer customer)
         {

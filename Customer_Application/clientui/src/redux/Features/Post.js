@@ -5,23 +5,35 @@ export const postApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://localhost:7234/api",
   }),
+
   endpoints: (builder) => ({
     GetAllPost: builder.query({
-      query: () => ({
-        url: "/Customer/getallcustomer",
-        method: "GET",
-      }),
-    }),
-    GetById: builder.query({
-      query: (id) => {
-        // console.log("ID :",id)
+      query: () => {
         return {
-          url: `/Customer/getbyid?id=${id}`,
-
+          url: "/Customer/getallcustomer",
           method: "GET",
         };
       },
     }),
+
+    GetById: builder.query({
+      query: (id) => {
+        return {
+          url: `/Customer/getbyid?id=${id}`,
+          method: "GET",
+        };
+      },
+    }),
+
+    GetByName: builder.query({
+      query: (name) => {
+        return {
+          url: `/Customer/getbyname?name=%27${name}%27`,
+          method: "GET",
+        };
+      },
+    }),
+
     DeleteCustomer: builder.mutation({
       query: (id) => {
         console.log("Deleted ID :", id);
@@ -35,6 +47,7 @@ export const postApi = createApi({
     AddNewCustomer: builder.mutation({
       query: (newCustomer) => {
         console.log("Create New Customer :", newCustomer);
+
         return {
           url: "/Customer",
           method: "POST",
@@ -42,9 +55,9 @@ export const postApi = createApi({
         };
       },
     }),
+    
     UpdateCustomer: builder.mutation({
       query: (EditCustomer) => {
-        console.log("Update New Customer :", EditCustomer);
         return {
           url: "/Customer",
           method: "PUT",
@@ -52,12 +65,13 @@ export const postApi = createApi({
         };
       },
     }),
+
     UpdateCustomerByCode: builder.mutation({
       query: (EditCustomer) => {
         console.log("Update New Customer :", EditCustomer);
         return {
           url: "/Customer/CustomerCode",
-          method: "PUT",
+          method: "PATCh",
           body: EditCustomer,
         };
       },
@@ -68,6 +82,7 @@ export const postApi = createApi({
 export const {
   useGetAllPostQuery,
   useGetByIdQuery,
+  useGetByNameQuery,
   useDeleteCustomerMutation,
   useAddNewCustomerMutation,
   useUpdateCustomerMutation,

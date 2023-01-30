@@ -9,5 +9,6 @@ const store = configureStore({
     middleware:(getDefaultMiddleware)=>
     getDefaultMiddleware().concat(postApi.middleware),
 }) ;
+
 setupListeners(store.dispatch)
 export default store;

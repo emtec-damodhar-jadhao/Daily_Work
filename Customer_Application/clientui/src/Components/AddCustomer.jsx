@@ -3,11 +3,9 @@ import Form from './Form';
 
 function AddCustomer() {
   let page = "AddCustomer";
-
   return (
    <>
-   <Form page={page}/>  
-   
+   <Form page={page}/>     
    </>
   )
 }
