@@ -32,6 +32,11 @@
         public async Task<IActionResult> Getbyid(int id)
         {
             var getstudent = await _DataBaseOperation.GetCustomerByID(id);
+
+            if (getstudent == null ) 
+            {
+                return BadRequest("data not Exist");
+            }
             return Ok(getstudent);            
         }
 

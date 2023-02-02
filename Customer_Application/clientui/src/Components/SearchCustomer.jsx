@@ -4,6 +4,7 @@ import {
 } from "../redux/Features/Post";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import Spinner from "./Spinner";
 
 function SearchCustomer() {
   const [id, SetId] = useState(0);
@@ -63,7 +64,7 @@ function SearchCustomer() {
         </div>
       </div>
       {/* Update Code */}
-      {isLoading && <h4>Loading Data</h4>}
+      {isLoading && <Spinner/>}
       {isError && <h4>Error is found {isError}</h4>}
 
       {isSuccess && didFind && (
@@ -121,7 +122,7 @@ function SearchCustomer() {
                       Postal Code
                     </label>
                     <input
-                      name="PostalCode"
+                      name="postalCode"
                       type="number"
                       onChange={(e) => onChangeHandle(e)}
                       defaultValue={val.postalCode}

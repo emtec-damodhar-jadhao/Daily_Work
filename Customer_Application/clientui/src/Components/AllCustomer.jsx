@@ -4,6 +4,7 @@ import {
   useDeleteCustomerMutation,
 } from "../redux/Features/Post";
 import Navbar from "./Navbar";
+import Spinner from "./Spinner";
 
 function AllCustomer() {
   const responseInfo = useGetAllPostQuery();
@@ -11,7 +12,7 @@ function AllCustomer() {
   return (
     <>
       <Navbar />
-      {responseInfo.isLoading && <h4>Loading data....</h4>}
+      {responseInfo.isLoading && <Spinner/>}
       {responseInfo.isError && <h4>Error is found </h4>}
       {responseInfo.isSuccess && (
         <div className="container">
