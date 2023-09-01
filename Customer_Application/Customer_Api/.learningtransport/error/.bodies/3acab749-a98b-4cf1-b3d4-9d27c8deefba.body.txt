@@ -1,0 +1,1 @@
+<?xml version="1.0"?><UserDataAdd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.net/UserData"><Id>4</Id><CustomerCode>string</CustomerCode><PostalCode>0</PostalCode><landmark>abc</landmark><Address>string</Address><CityId>2</CityId></UserDataAdd>
